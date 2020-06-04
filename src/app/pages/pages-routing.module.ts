@@ -1,14 +1,15 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {WelcomeComponent} from './welcome.component';
+import {GarbageClassificationComponent} from './garbage-classification/garbage-classification.component';
+
 
 const routes: Routes = [
-  {path: '', component: WelcomeComponent},
+  {path: '', component: GarbageClassificationComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class WelcomeRoutingModule {
+export class PagesRoutingModule {
 }

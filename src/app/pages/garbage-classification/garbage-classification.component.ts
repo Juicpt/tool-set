@@ -1,0 +1,78 @@
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {PictureRecognitionService} from '../../common/services/picture-recognition.service';
+
+@Component({
+  selector: 'app-garbage-classification',
+  templateUrl: './garbage-classification.component.html',
+  styleUrls: ['./garbage-classification.component.css']
+})
+export class GarbageClassificationComponent implements OnInit {
+
+  @ViewChild('c') c: ElementRef;
+  ctx: CanvasRenderingContext2D;
+  img: HTMLImageElement;
+  status = false;
+  fileStatus = false;
+  file: any;
+
+  constructor(
+    private pictureRecognition: PictureRecognitionService,
+  ) {
+  }
+
+  ngOnInit() {
+  }
+
+  async btnClick() {
+    if (!this.fileStatus) {
+      return;
+    }
+    const h = 200;
+    const w = 200;
+    const result = await this.pictureRecognition.distinguish(this.ctx.getImageData(0, 0, 200, 200));
+    console.log(result);
+    if (!this.status) {
+      result.forEach(
+        value => {
+          const bbox = value.bbox;
+          bbox[0] = bbox[0] / w;
+          bbox[1] = bbox[1] / h;
+          bbox[2] = bbox[2] / w;
+          bbox[3] = bbox[3] / h;
+          this.ctx.fillText(value.class, bbox[0] + bbox[2] / 2, bbox[1] + bbox[3] / 2);
+          this.ctx.strokeText(value.class, bbox[0] + bbox[2] / 2, bbox[1] + bbox[3] / 2);
+          this.ctx.strokeRect(...bbox);
+          this.status = true;
+        }
+      );
+      this.ctx.stroke();
+    }
+
+  }
+
+  /**
+   * 文件上传
+   */
+  fileUpdate(param) {
+    if (param.target.files.length !== 0) {
+      this.fileStatus = true;
+      if (!this.ctx) {
+        this.ctx = this.c.nativeElement.getContext('2d');
+      }
+
+      this.status = false;
+      this.img = new Image();
+      this.file = param.target.files[0];
+      this.img.src = URL.createObjectURL(param.target.files[0]);
+      this.img.onload = () => {
+        this.ctx.drawImage(this.img, 0, 0, 200, 200);
+        this.ctx.font = '10px serif';
+        this.ctx.strokeStyle = '#ff2c2a';
+      };
+    } else {
+      this.fileStatus = false;
+      this.ctx.drawImage(new Image(), 0, 0, 200, 200);
+    }
+  }
+
+}
