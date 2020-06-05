@@ -1,4 +1,40 @@
-<canvas #c width="200" height="200"></canvas>
-<input type="file" id="take-picture" accept="image/*" (change)="fileUpdate($event)">
+<nz-spin
+  nzTip="正在识别中..."
+  [nzSpinning]="spinning"
+>
+  <div
+    nz-row
+    [nzJustify]="'center'"
+    [nzAlign]="'middle'">
+    <div nz-col>
+      <nz-card
+        nzTitle="图片识别"
+        [nzActions]="[select,distinguish,baseModelType]"
+        [nzHoverable]="true"
+      >
+        <canvas #c [width]="width" [height]="height"></canvas>
+      </nz-card>
+    </div>
+  </div>
+</nz-spin>
+<ng-template #select>
+  <nz-upload
+    [nzBeforeUpload]="beforeUpload"
+    [nzShowUploadList]="false"
+    [nzFileType]="'image/png,image/jpeg,image/gif,image/bmp'"
+  >
+    <button nz-button nzSize="small"><i nz-icon nzType="upload"></i> 选择图片</button>
+  </nz-upload>
 
-<button nz-button nzType="primary" (click)="btnClick()">识别</button>
+</ng-template>
+<ng-template #distinguish>
+  <button nz-button nzType="primary" nzSize="small" (click)="btnClick()">识别</button>
+</ng-template>
+
+<ng-template #baseModelType>
+  <nz-select nzSize="small" [(ngModel)]="baseModel">
+    <nz-option nzValue="mobilenet_v1" nzLabel="mobilenet_v1"></nz-option>
+    <nz-option nzValue="mobilenet_v2" nzLabel="mobilenet_v2"></nz-option>
+    <nz-option nzValue="lite_mobilenet_v2" nzLabel="lite_mobilenet_v2"></nz-option>
+  </nz-select>
+</ng-template>

@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {NzButtonModule} from 'ng-zorro-antd';
+import {NzButtonModule, NzCardModule, NzGridModule, NzMessageModule, NzSelectModule, NzSpinModule, NzUploadModule} from 'ng-zorro-antd';
 import {NzLayoutModule} from 'ng-zorro-antd/layout';
 import {NzMenuModule} from 'ng-zorro-antd/menu';
 import {IconsProviderModule} from '../../icons-provider.module';
@@ -17,6 +17,12 @@ import {IconsProviderModule} from '../../icons-provider.module';
     NzLayoutModule,
     NzMenuModule,
     IconsProviderModule,
+    NzUploadModule,
+    NzMessageModule,
+    NzCardModule,
+    NzGridModule,
+    NzSpinModule,
+    NzSelectModule
   ],
 })
 export class SharedModule {
