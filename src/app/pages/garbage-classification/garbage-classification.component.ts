@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {PictureRecognitionService} from '../../common/services/picture-recognition.service';
+import {PictureRecognitionService} from '@services/picture-recognition.service';
 
 @Component({
   selector: 'app-garbage-classification',
@@ -27,18 +27,15 @@ export class GarbageClassificationComponent implements OnInit {
     if (!this.fileStatus) {
       return;
     }
-    const h = 200;
-    const w = 200;
-    const result = await this.pictureRecognition.distinguish(this.ctx.getImageData(0, 0, 200, 200));
-    console.log(result);
+    const result = await this.pictureRecognition.distinguish(this.ctx.getImageData(0, 0, 200, 200), 'mobilenet_v1');
     if (!this.status) {
       result.forEach(
         value => {
-          const bbox = value.bbox;
-          bbox[0] = bbox[0] / w;
-          bbox[1] = bbox[1] / h;
-          bbox[2] = bbox[2] / w;
-          bbox[3] = bbox[3] / h;
+          const {bbox} = value;
+          bbox[0] = bbox[0];
+          bbox[1] = bbox[1];
+          bbox[2] = bbox[2];
+          bbox[3] = bbox[3];
           this.ctx.fillText(value.class, bbox[0] + bbox[2] / 2, bbox[1] + bbox[3] / 2);
           this.ctx.strokeText(value.class, bbox[0] + bbox[2] / 2, bbox[1] + bbox[3] / 2);
           this.ctx.strokeRect(...bbox);

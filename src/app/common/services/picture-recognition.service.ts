@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-import * as cocoSsd from '@tensorflow-models/coco-ssd';
-import {DetectedObject, ObjectDetection, ObjectDetectionBaseModel} from '@tensorflow-models/coco-ssd';
+import {DetectedObject, ObjectDetectionBaseModel} from '@tensorflow-models/coco-ssd';
 
 
 @Injectable({
@@ -8,38 +7,27 @@ import {DetectedObject, ObjectDetection, ObjectDetectionBaseModel} from '@tensor
 })
 export class PictureRecognitionService {
 
-  model: ObjectDetection;
   worker: Worker;
 
   constructor() {
 
   }
 
-  async distinguish(img: HTMLImageElement | ImageData,
-                    modal?: ObjectDetectionBaseModel): Promise<DetectedObject[]> {
+  async distinguish(img: ImageData, modal?: ObjectDetectionBaseModel): Promise<DetectedObject[]> {
 
     if (typeof Worker !== 'undefined') {
       if (!this.worker) {
         this.worker = new Worker('./picture-recognition.worker', {type: 'module'});
       }
 
-      return await new Promise((resolve, reject) => {
+      return await new Promise((resolve) => {
         this.worker.onmessage = ({data}) => {
           resolve(data);
         };
-        this.worker.postMessage(img);
+        this.worker.postMessage({img, modal});
       });
     } else {
-      // 加载模型
-      if (!this.model) {
-        await this.loadModel(modal);
-      }
-      // 对图片进行分类
-      return await this.model.detect(img);
+      console.log('不支持worker');
     }
-  }
-
-  async loadModel(model?: ObjectDetectionBaseModel): Promise<any> {
-    this.model = await cocoSsd.load();
   }
 }
