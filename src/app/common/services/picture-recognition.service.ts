@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {DetectedObject, ObjectDetectionBaseModel} from '@tensorflow-models/coco-ssd';
+import {NzMessageService} from 'ng-zorro-antd';
 
 
 @Injectable({
@@ -9,7 +10,7 @@ export class PictureRecognitionService {
 
   worker: Worker;
 
-  constructor() {
+  constructor(private msg: NzMessageService) {
 
   }
 
@@ -27,7 +28,7 @@ export class PictureRecognitionService {
         this.worker.postMessage({img, modal});
       });
     } else {
-      console.log('不支持worker');
+      this.msg.warning('此浏览器不支持Worker！');
     }
   }
 }
