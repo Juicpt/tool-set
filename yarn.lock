@@ -203,6 +203,14 @@
   resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-9.1.9.tgz#c2fcc50aebfdc268521b407e32dc0d967cb40411"
   integrity sha512-V861X3MxJp1AlMTnkUPldpBLIJbApXF3ka0A5Dq2nVJCyOFeteGkaRWSBgqe2jxmq+LVpJbzcNvtDFXw6mQ0jA==
 
+"@angular/platform-server@~9.1.9":
+  version "9.1.9"
+  resolved "https://registry.yarnpkg.com/@angular/platform-server/-/platform-server-9.1.9.tgz#60c9b81c6c963948f4dd426c7029e72a65fe4396"
+  integrity sha512-PtOUE6Vxnrg03/zJbjnZ6BbctAEdFjAbHr8zbGhHa2q504DlY9OJACRCqcP8tIpW9nbDDKqvr/RENONmISichA==
+  dependencies:
+    domino "^2.1.2"
+    xhr2 "^0.2.0"
+
 "@angular/router@~9.1.9":
   version "9.1.9"
   resolved "https://registry.yarnpkg.com/@angular/router/-/router-9.1.9.tgz#5d79d72cb62ea1c04ea70238846653ecf9c4a73c"
@@ -3130,6 +3138,11 @@ domelementtype@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-2.0.1.tgz#1f8bdfe91f5a78063274e803b4bdcedf6e94f94d"
   integrity sha512-5HOHUDsYZWV8FGWN0Njbr/Rn7f/eWSQi1v7+HsUVwXgn8nWWlL64zKDkS0n8ZmQ3mlWOMuXOnR+7Nx/5tMO5AQ==
+
+domino@^2.1.2:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/domino/-/domino-2.1.5.tgz#4aa08e395d496c463c3afee1cd0f7173f63eacb5"
+  integrity sha512-vMDo7f6ogUV9PkzmxXLiXzJkJZqU09Le4C40mj+HmAGS/2FPmdetoNOQZXpu2kekn0GJKvtwKMAVoruTj60Xww==
 
 domutils@^1.7.0:
   version "1.7.0"
@@ -8718,6 +8731,11 @@ ws@~6.1.0:
   integrity sha512-eqZfL+NE/YQc1/ZynhojeV8q+H050oR8AZ2uIev7RU10svA9ZnJUddHcOUZTJLinZ9yEfdA2kSATS2qZK5fhJA==
   dependencies:
     async-limiter "~1.0.0"
+
+xhr2@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/xhr2/-/xhr2-0.2.0.tgz#eddeff782f3b7551061b8d75645085269396e521"
+  integrity sha512-BDtiD0i2iKPK/S8OAZfpk6tyzEDnKKSjxWHcMBVmh+LuqJ8A32qXTyOx+TVOg2dKvq6zGBq2sgKPkEeRs1qTRA==
 
 xml2js@^0.4.17:
   version "0.4.23"
