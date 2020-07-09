@@ -1,4 +1,5 @@
 /// <reference lib="webworker" />
+import '@tensorflow/tfjs-backend-cpu';
 import {DetectedObject, load, ObjectDetection, ObjectDetectionBaseModel} from '@tensorflow-models/coco-ssd';
 
 let model: ObjectDetection;

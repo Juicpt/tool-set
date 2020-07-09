@@ -37,7 +37,10 @@
               "src/styles.css"
             ],
             "scripts": [],
-            "webWorkerTsConfig": "tsconfig.worker.json"
+            "webWorkerTsConfig": "tsconfig.worker.json",
+            "allowedCommonJsDependencies": [
+              "@ant-design/colors"
+            ]
           },
           "configurations": {
             "production": {
