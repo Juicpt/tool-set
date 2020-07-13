@@ -4,7 +4,8 @@ import {GarbageClassificationComponent} from './garbage-classification/garbage-c
 
 
 const routes: Routes = [
-  {path: '', component: GarbageClassificationComponent}
+  {path: '', redirectTo: 'garbageClassification', pathMatch: 'full'},
+  {path: 'garbageClassification', component: GarbageClassificationComponent}
 ];
 
 @NgModule({
