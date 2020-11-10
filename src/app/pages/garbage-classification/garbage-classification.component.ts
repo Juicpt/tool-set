@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {PictureRecognitionService} from '@services/picture-recognition.service';
-import {UploadFile} from 'ng-zorro-antd';
 import {ObjectDetectionBaseModel} from '@tensorflow-models/coco-ssd';
+import {NzUploadFile} from 'ng-zorro-antd/upload';
 
 @Component({
   selector: 'app-garbage-classification',
@@ -28,7 +28,7 @@ export class GarbageClassificationComponent implements OnInit {
   }
 
 
-  beforeUpload = (file: UploadFile): boolean => {
+  beforeUpload = (file: NzUploadFile): boolean => {
     this.file = file;
     if (file) {
       this.fileUpdate(file);

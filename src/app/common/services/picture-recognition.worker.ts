@@ -19,11 +19,8 @@ async function distinguish(img: any, baseModel?: ObjectDetectionBaseModel): Prom
   return await model.detect(img);
 }
 
-addEventListener('message', ({data}) => {
+addEventListener('message', async ({data}) => {
 
-  distinguish(data.img, data.modal).then(
-    value => {
-      postMessage(value);
-    }
-  );
+  const value = await distinguish(data.img, data.modal);
+  postMessage(value);
 });

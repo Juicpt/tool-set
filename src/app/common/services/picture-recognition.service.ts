@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {DetectedObject, ObjectDetectionBaseModel} from '@tensorflow-models/coco-ssd';
-import {NzMessageService} from 'ng-zorro-antd';
+import {NzMessageService} from 'ng-zorro-antd/message';
 
 
 @Injectable({
