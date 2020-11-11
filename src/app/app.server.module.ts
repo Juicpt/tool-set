@@ -8,7 +8,7 @@ import {AppShellComponent} from './app-shell/app-shell.component';
 
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import {IconDefinition} from '@ant-design/icons-angular';
-import {NzIconModule} from 'ng-zorro-antd';
+import {NzIconModule} from 'ng-zorro-antd/icon';
 
 const routes: Routes = [{path: 'shell', component: AppShellComponent}];
 
