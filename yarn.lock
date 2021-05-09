@@ -264,12 +264,27 @@
   dependencies:
     tinycolor2 "^1.4.1"
 
-"@ant-design/icons-angular@^10.0.0", "@ant-design/icons-angular@^10.0.0-beta.0":
+"@ant-design/colors@^5.0.0":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@ant-design/colors/-/colors-5.1.1.tgz#800b2186b1e27e66432e67d03ed96af3e21d8940"
+  integrity sha512-Txy4KpHrp3q4XZdfgOBqLl+lkQIc3tEvHXOimRN1giX1AEC7mGtyrO9p8iRGJ3FLuVMGa2gNEzQyghVymLttKQ==
+  dependencies:
+    "@ctrl/tinycolor" "^3.3.1"
+
+"@ant-design/icons-angular@^10.0.0":
   version "10.0.1"
   resolved "https://registry.yarnpkg.com/@ant-design/icons-angular/-/icons-angular-10.0.1.tgz#d1173f629535c1e82a05288fd95b8e05bc272d61"
   integrity sha512-RXVzUR1gYUURIkm6jp1LV8U2/9l02IhUGfYHt1SqP73vijzrbXVmkdJSATFbL4wjnoOc+d6VGKTNu6DeVtzldg==
   dependencies:
     "@ant-design/colors" "^3.1.0"
+    tslib "^2.0.0"
+
+"@ant-design/icons-angular@^10.0.1":
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/@ant-design/icons-angular/-/icons-angular-10.2.0.tgz#cf13a6a33b1415934b7331b58cc38fa0653fa374"
+  integrity sha512-c5g31hD9otf0DAmHMlvijyOcq1sXpdqKbMFZHxXAUG2sTi+cgixqI8LNePCc9MxBy0N48gAmp0CfhGiByxZJnQ==
+  dependencies:
+    "@ant-design/colors" "^5.0.0"
     tslib "^2.0.0"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4":
@@ -1143,6 +1158,11 @@
     "@babel/helper-validator-identifier" "^7.10.4"
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
+
+"@ctrl/tinycolor@^3.3.1":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz#c3c5ae543c897caa9c2a68630bed355be5f9990f"
+  integrity sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==
 
 "@istanbuljs/schema@^0.1.2":
   version "0.1.2"
@@ -8691,9 +8711,9 @@ urix@^0.1.0:
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
 
 url-parse@^1.4.3:
-  version "1.4.7"
-  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.4.7.tgz#a8a83535e8c00a316e403a5db4ac1b9b853ae278"
-  integrity sha512-d3uaVyzDB9tQoSXFvuSUNFibTd9zxd2bkVrDRvF5TmvWWQwqE4lgYJ5m+x1DbecWkw+LK4RNl2CU1hHuOKPVlg==
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.5.1.tgz#d5fa9890af8a5e1f274a2c98376510f6425f6e3b"
+  integrity sha512-HOfCOUJt7iSYzEx/UqgtwKRMC6EU91NFhsCHMv9oM03VJcVo2Qrp8T8kI9D7amFf1cu+/3CEhgb3rF9zL7k85Q==
   dependencies:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
